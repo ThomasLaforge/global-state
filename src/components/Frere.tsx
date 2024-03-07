@@ -1,21 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { FamilyContext } from "../App";
 
-export default function Frere(props: { prenom: string, updatePrenom: (prenom: string) => void}){
-    const [prenomForm, setPrenomForm] = useState(props.prenom)
+export default function Frere(){
+    const { prenom, setPrenom } = useContext(FamilyContext)
+    const [newPrenom, setNewPrenom] = useState(prenom)
 
-    const handleChangePrenomForm = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPrenomForm(event.target.value)
+    const handleChangePrenom = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNewPrenom(e.target.value)
     }
 
-    const handleUpdateFamille = () => {
-        props.updatePrenom(prenomForm)
+    const handleUpdatePrenom = () => {
+        setPrenom(newPrenom)
     }
 
     return (
         <div>
-        <h1>Frère : {props.prenom} </h1>
-        <input type="text" value={prenomForm} onChange={handleChangePrenomForm} />
-        <button onClick={handleUpdateFamille}>Changer le prénom</button>
+        <h1>Frère : {prenom} </h1>
+        <input type="text" value={newPrenom} onChange={handleChangePrenom} />
+        <button onClick={handleUpdatePrenom}>Mettre à jour le prénom</button>
         </div>
     );
 }
