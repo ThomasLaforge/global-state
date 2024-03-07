@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import Pere from "./Pere";
-import { FamilyContext } from "../App";
+import { useFamilyStore } from "../App";
 
 export default function GrandPere() {
-    const { prenom } = useContext(FamilyContext)
+    const { prenom } = useFamilyStore()
 
     return (
         <div>
