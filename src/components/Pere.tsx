@@ -1,13 +1,13 @@
+import { useContext } from "react";
 import Frere from "./Frere";
+import { FamilyContext } from "../App";
 
-export default function Pere(props: { prenomP: string, updatePrenom: (prenom: string) => void}) {
+export default function Pere() {
+    const prenomP = useContext(FamilyContext).prenom
     return (
         <div>
-            <h1>Père : {props.prenomP} </h1>
-            <Frere 
-                prenom={props.prenomP} 
-                updatePrenom={props.updatePrenom}
-            />
+            <h1>Père : {prenomP} </h1>
+            <Frere />
         </div>
     );
 }
