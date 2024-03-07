@@ -1,25 +1,21 @@
-import { createContext, useState } from 'react'
 import './App.css'
 import ArriereGrandPere from './components/ArriereGrandPere'
-import Pere from './components/Pere'
+import { create } from 'zustand'
 
-export const FamilyContext = createContext<{
-  prenom: string,
-  setPrenom: (prenom: string) => void,
-}>({
-  prenom: "",
-  setPrenom: () => {},
-})
+interface FamilyState {
+  prenom: string
+  setPrenom: (newPrenom: string) => void
+}
 
+export const useFamilyStore = create<FamilyState>()((set) => ({
+  prenom: "Thomas",
+  setPrenom: (newPrenom) => set((state) => ({ prenom: newPrenom })),
+}))
 
 function App() {
-  const [prenomState, setPrenomState] = useState("Jean")
-
   return (
     <>
-      <FamilyContext.Provider value={{prenom: prenomState, setPrenom: setPrenomState}}>
-        <ArriereGrandPere />
-      </FamilyContext.Provider>
+      <ArriereGrandPere />
     </>
   )
 }

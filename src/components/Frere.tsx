@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
-import { FamilyContext } from "../App";
+import { useState } from "react";
+import { useFamilyStore } from "../App";
 
 export default function Frere(){
-    const { prenom, setPrenom } = useContext(FamilyContext)
+    const { prenom, setPrenom } = useFamilyStore()
     const [newPrenom, setNewPrenom] = useState(prenom)
 
     const handleChangePrenom = (e: React.ChangeEvent<HTMLInputElement>) => {
