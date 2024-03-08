@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import { create } from 'zustand'
 import Container from './components/Container'
 
@@ -23,10 +23,12 @@ export const useDarkThemeStore = create<DarkThemeState>()((set) => ({
 }))
 
 function App() {
+  const { darkTheme } = useDarkThemeStore()
+
   return (
-    <>
+    <div className={'App ' + (darkTheme ? 'dark' : '')} >
       <Container />
-    </>
+    </div>
   )
 }
 

@@ -5,15 +5,9 @@ export default function Container() {
     const isDarkTheme = useDarkThemeStore().darkTheme
 
     return (
-        <div style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: isDarkTheme ? 'black' : 'white',
-            color: isDarkTheme ? 'white' : 'black',
-        }}>
+        <div
+            className={"container-" + (isDarkTheme ? "dark" : "light")}
+        >
             <Card />
         </div>
     );
