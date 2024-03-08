@@ -6,14 +6,12 @@
   align-items: center;
 }
 
-.container {
+.container-dark, .container-light {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
-  background-color: white;
-  color: black;
 }
 
 .card {
@@ -28,10 +26,6 @@
 }
 
 .dark {
-  .container {
-    background-color: black;
-    color: white;
-  }
 
   .card {
     background-color: white;
@@ -43,4 +37,14 @@
     background-color: black;
     color: white;
   }
+}
+
+.container-dark {
+  background-color: black;
+  color: white;
+}
+
+.container-light {
+  background-color: white;
+  color: black;
 }

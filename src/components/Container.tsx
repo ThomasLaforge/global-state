@@ -6,7 +6,7 @@ export default function Container() {
 
     return (
         <div
-            className="container"
+            className={"container-" + (isDarkTheme ? "dark" : "light")}
         >
             <Card />
         </div>
