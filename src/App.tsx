@@ -1,6 +1,6 @@
 import './App.css'
-import ArriereGrandPere from './components/ArriereGrandPere'
 import { create } from 'zustand'
+import Container from './components/Container'
 
 interface FamilyState {
   prenom: string
@@ -8,14 +8,24 @@ interface FamilyState {
 }
 
 export const useFamilyStore = create<FamilyState>()((set) => ({
-  prenom: "Thomas",
-  setPrenom: (newPrenom) => set((state) => ({ prenom: newPrenom })),
+  prenom: "thomas",
+  setPrenom: (newPrenom: string) => set(() => ({ prenom: newPrenom })),
+}))
+
+interface DarkThemeState {
+  darkTheme: boolean
+  switchTheme: () => void
+}
+
+export const useDarkThemeStore = create<DarkThemeState>()((set) => ({
+  darkTheme: false,
+  switchTheme: () => set((state) => ({ darkTheme: !state.darkTheme })),
 }))
 
 function App() {
   return (
     <>
-      <ArriereGrandPere />
+      <Container />
     </>
   )
 }
